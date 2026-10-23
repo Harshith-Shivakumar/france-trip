@@ -546,6 +546,7 @@ const DAYS = [
  {r:"alps",date:"Wed 28 Oct",t:"Drive north to the Alps",wx:["🌧️","12° / 6°C","35% rain"],
   plan:"About 5 hours on the road. The forecast is rainy, which suits an evening in QC Terme's heated outdoor pools facing Mont Blanc.",
   stay:"Passy, 25 minutes from Chamonix (night 1 of 2)", move:"About 5 hours (470 km, tolls) via Aix-en-Provence, Grenoble and the A41/A40.",
+  extra:'<b>Other spas instead of QC Terme:</b> <a href="https://thermes-saint-gervais.com/informations/horaires-thermes-de-saint-gervais/a81.aspx" target="_blank" rel="noopener">Les Bains du Mont-Blanc</a>, Saint-Gervais, 10 min from Passy: €39–49, about 9:00–20:00 · <a href="https://lepalaismegeve.com/en/pm/equipement/megeve/spa-espace-bien-etre-soins/345875-34/" target="_blank" rel="noopener">Le Palais spa</a>, Megève, 25 min: €23, Tue–Sat 10:00–19:00 · <a href="https://www.cc-valleedechamonixmontblanc.fr/demarches/sports/la-piscine/" target="_blank" rel="noopener">Richard Bozon pool and saunas</a>, Chamonix: €14.50, Wed 12:00–19:30. Tight swimwear only; check hours before going.',
   steps:[
    ["08:30","Leave La Ciotat."],
    ["12:00","Lunch stop around Grenoble."],
@@ -672,7 +673,7 @@ function dayBody(d, sets){
   tl.innerHTML = d.steps.map(([time, what]) => `<li><time>${esc(time)}</time><span>${esc(what)}</span></li>`).join("");
   f.appendChild(tl);
   const facts = document.createElement("div"); facts.className = "facts";
-  facts.innerHTML = `<div><b>Getting around:</b> ${esc(d.move)}</div><div><b>Sleep:</b> ${esc(d.stay)}</div>`;
+  facts.innerHTML = `<div><b>Getting around:</b> ${esc(d.move)}</div><div><b>Sleep:</b> ${esc(d.stay)}</div>${d.extra ? `<div>${d.extra}</div>` : ""}`;
   f.appendChild(facts);
   if (d.stops.length){
     const g = document.createElement("div"); g.className = "stops";
